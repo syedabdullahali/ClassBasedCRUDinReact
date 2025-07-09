@@ -1,41 +1,49 @@
 import { useEffect, useState } from "react"
+import { CleanUser, UserFetchApi } from "../type/crud"
 
 
-function useHookGetData() {
+
+function useHookGetData():UserFetchApi {
 const [data,setData] = useState({status:false,data:[]}) 
 const getDataofUser = async ()=>{
 try{
 
     const rsponse =  await fetch(`http://localhost:5000/user/all`,{
     headers:{
-       "Authorization":"24"
+       "Authorization":"Test Token"
     }})
     if(rsponse.status===200){
         const data =await rsponse.json()
-     setData({status:true,data})
+     setData({status:true,data:data.data})
     } 
 }catch (error){
-    setData({status:false,data:error})
+    setData({status:false,data:[]})
 
 }}
 useEffect(()=>{
     getDataofUser()
 },[])   
-return {...data,getDataofUser} 
+return {
+  status:data.status,
+  data:{
+    data:data?.data||[]
+  },
+  getDataofUser:getDataofUser
+} 
 }
 
 function useHookDeleteData() {
-    const deleteDataofUser = async (id)=>{
+    const deleteDataofUser = async (id:string)=>{
     try{
         const rsponse =  await fetch(`http://localhost:5000/user/delete/${id}`,{
         headers:{
-           "Authorization":"24"
+           "Authorization":"Test Token"
         },
         method:"DELETE"
     })
         if(rsponse.status===200){
             const data =await rsponse.json()
-           return {status:true,data}
+           return {status:true,data:data.data}
         } else{
             return {status:false,data:{message:"Something went wrong....."}}
         }
@@ -46,7 +54,7 @@ function useHookDeleteData() {
     return {deleteDataofUser}
 }
 function useHookPostData() {
-    const createDataofUser = async (body)=>{
+    const createDataofUser = async (body:CleanUser)=>{
         console.log(JSON.stringify(body))
     try{
         const rsponse =  await fetch(`http://localhost:5000/user/create`,
@@ -54,7 +62,7 @@ function useHookPostData() {
        {
         body:JSON.stringify(body),
         headers:{
-           "Authorization":"24",
+           "Authorization":"Test Token",
            "Content-type":"application/json"
         },
         method:"POST"
@@ -73,14 +81,14 @@ function useHookPostData() {
 }
 
 function useHookUpdateData() {
-    const updateDataofUser = async (id,data)=>{
+    const updateDataofUser = async (id:string,data:CleanUser)=>{
         console.log("data",data)
     try{
         const rsponse =  await fetch(`http://localhost:5000/user/update/${id}`,    
        {
         body:JSON.stringify(data),
         headers:{
-           "Authorization":"24",
+           "Authorization":"Test Token",
            "Content-type":"application/json"
         },
         method:"PATCH"
