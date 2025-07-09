@@ -3,9 +3,10 @@ const mongoose = require('mongoose')
 const app =  express()
 app.use(require('cors')())
 app.use(express.json())
-const crudRoute = require('./crudRoute')
+const userRoute = require('./router/user')
 
-app.use('/user',crudRoute)
+app.use('/user',userRoute)
+
 mongoose.connect('mongodb://localhost:27017/').then(()=>{
     console.log("Db Is Connected")
     app.listen(5000,()=>{

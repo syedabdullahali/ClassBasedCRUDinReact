@@ -1,6 +1,6 @@
 const middaleWare  = async (req,res,next)=>{
 try{
-    if(req.headers.authorization==="24"){
+    if(req.headers.authorization==="Test Token"){
         next()
     }else{
        res.status(403).json({message:"Access denied"})

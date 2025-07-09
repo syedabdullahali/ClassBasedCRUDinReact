@@ -1,6 +1,6 @@
 const router =  require('express').Router()
-const curdModel = require('./crudMode')
-const { middaleWare } = require('./middleWare')
+const curdModel = require('../model/user')
+const { middaleWare } = require('../auth/middleWare')
 
 router.get('/all',middaleWare, async (req,res)=>{
 try{
