@@ -1,8 +1,9 @@
 const router =  require('express').Router()
+import express, {Request,Response} from "express"
 const curdModel = require('../model/user')
 const { middaleWare } = require('../auth/middleWare')
 
-router.get('/all',middaleWare, async (req,res)=>{
+router.get('/all',middaleWare, async (req:Request,res:Response)=>{
 try{
     const response  = await curdModel.find()
     res.status(200).json({success:true,data: response,message:"Successfully Fetch"})
@@ -11,7 +12,7 @@ try{
 }
 })
 
-router.post('/create',middaleWare,async (req,res)=>{
+router.post('/create',middaleWare,async (req:Request,res:Response)=>{
 try{
     console.log(req.body)
 const temp =  new curdModel(req.body)    
@@ -22,7 +23,7 @@ res.status(500).json({error:error,success:false,message:"Somthing Went Worong...
 }
 })
 
-router.delete('/delete/:id',middaleWare,async (req,res)=>{
+router.delete('/delete/:id',middaleWare,async (req:Request,res:Response)=>{
 try{
 
 const response = await  curdModel.findByIdAndDelete(req.params.id)
@@ -32,7 +33,7 @@ res.status(500).json({error:error,message:"Somting Went Worng While Delating",su
 }
 })
 
-router.patch('/update/:id',middaleWare,async(req,res)=>{
+router.patch('/update/:id',middaleWare,async(req:Request,res:Response)=>{
 try{
 const response =  await curdModel.findByIdAndUpdate(req.params.id,{...req.body},{new:true})
 res.status(200).json({data:response,message:"Update collection successfully"})

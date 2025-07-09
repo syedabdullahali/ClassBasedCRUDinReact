@@ -1,4 +1,5 @@
-const middaleWare  = async (req,res,next)=>{
+import{Request,Response,NextFunction} from "express"
+const middaleWare  = async (req:Request,res:Response,next:NextFunction)=>{
 try{
     if(req.headers.authorization==="Test Token"){
         next()
