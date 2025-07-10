@@ -3,8 +3,6 @@ import { ChangeEvent,useState } from 'react';
 import {  useHookGetData,useHookDeleteData, useHookPostData, useHookUpdateData } from '../api/crud';
 import { User, UserFetchApi } from '../type/crud';
 
-
-
 function FunctionComponent() {
   const result:UserFetchApi = useHookGetData()  
   const {status,data,getDataofUser} =result 
