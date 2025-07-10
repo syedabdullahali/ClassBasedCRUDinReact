@@ -1,13 +1,14 @@
 import ClassComponent from "./component/ClassComponent";
 import FunctionComponent from "./component/FunctionComponent";
+import HookWrapper from "./wrapper/HookWrapper";
 
 const App = ()=> {
   return (
     <div>
       <h2>ClassComponent</h2>
-      <ClassComponent />
+      <HookWrapper Component={ClassComponent}/>
       <h2>FunctionComponent</h2>
-      <FunctionComponent />
+      <HookWrapper Component={FunctionComponent}/>
     </div>
   );
 };
