@@ -1,45 +1,58 @@
-```md
-# 🛠️ Full-Stack CRUD App with TypeScript (React + Node.js + MongoDB)
+````md
+# 🛠️ React Lifecycle + Full-Stack CRUD App (TypeScript: React + Node.js + MongoDB)
 
-This is a **full-stack CRUD (Create, Read, Update, Delete)** web application built using **React.js (TypeScript)** on the client side and **Node.js with Express.js (TypeScript)** on the server side. Data is stored in **MongoDB** using **Mongoose**.
+This project is a **full-stack CRUD (Create, Read, Update, Delete)** web application focused on learning and comparing **React lifecycle methods** using both **Class Components** and **Function Components with Hooks**. Built with **TypeScript** on both the client and server sides.
 
 ---
 
 ## 🚀 Tech Stack
 
-| Layer     | Technology                        |
-|-----------|-----------------------------------|
-| Frontend  | React.js (Class Components) + TypeScript |
-| Backend   | Node.js + Express + TypeScript    |
-| Database  | MongoDB (via Mongoose)            |
+| Layer     | Technology                                      |
+|-----------|-------------------------------------------------|
+| Frontend  | React.js (Class & Function Components) + TypeScript |
+| Backend   | Node.js + Express.js + TypeScript              |
+| Database  | MongoDB (via Mongoose)                         |
 
 ---
 
-## 🌟 Features
+## 🌟 Learning Goals & Features
 
-- ✍️ Create, Read, Update, Delete operations
-- ⚙️ Built with **TypeScript** on both frontend and backend
-- 📦 Connected to **MongoDB** for data persistence
-- 💻 Clean code with reusable components and modules
-- 🔄 Real-time updates (optional with socket/event or state refresh)
-- 🌐 CORS-enabled server for smooth local development
+- 🧠 Explore **React lifecycle methods** in both **Class Components** and **Function Components (Hooks)**
+- ✍️ Implement CRUD operations for full-stack learning
+- ⚙️ TypeScript throughout the stack
+- 📦 MongoDB for data persistence
+- ♻️ Clean, modular code and reusable components
+- 🔁 Optional real-time updates using event/state refresh
+- 🌐 CORS-enabled backend for local development
 
 ---
 
 ## 📁 Folder Structure
 
-
+```bash
+.
+├── client/             # React frontend (TypeScript)
+│   ├── components/     # Class and Function components with lifecycle logic
+│   ├── services/       # API logic
+│   └── ...
+├── server/             # Node.js backend (TypeScript)
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   └── ...
+└── README.md
+````
 
 ---
 
 ## 🔧 API Endpoints
 
-| Method | Endpoint         | Description            |
-|--------|------------------|------------------------|
-| GET    | `/api/items`     | Fetch all items        |
-| POST   | `/api/items`     | Create a new item      |
-| PUT    | `/api/items/:id` | Update an item by ID   |
-| DELETE | `/api/items/:id` | Delete an item by ID   |
+| Method | Endpoint         | Description          |
+| ------ | ---------------- | -------------------- |
+| GET    | `/api/items`     | Fetch all items      |
+| POST   | `/api/items`     | Create a new item    |
+| PUT    | `/api/items/:id` | Update an item by ID |
+| DELETE | `/api/items/:id` | Delete an item by ID |
 
 ---
 
@@ -50,7 +63,9 @@ This is a **full-stack CRUD (Create, Read, Update, Delete)** web application bui
   "start": "node dist/index.js",
   "dev": "ts-node src/index.ts"
 }
-````
+```
+
+---
 
 ## 🧪 Server Dev Dependencies
 
@@ -65,7 +80,7 @@ This is a **full-stack CRUD (Create, Read, Update, Delete)** web application bui
 
 ---
 
-## 🧩 Client Scripts (`client/package.json`)
+## 📦 Client Scripts (`client/package.json`)
 
 ```json
 "scripts": {
@@ -84,7 +99,7 @@ Create a `.env` file in your `server` directory:
 
 ```
 PORT=5000
-MONGO_URI=mongodb://localhost:27017/classBasedCRUDinReact
+MONGO_URI=mongodb://localhost:27017/reactLifecycleCRUD
 ```
 
 Use `dotenv` in your server entry:
@@ -114,3 +129,19 @@ npm install
 npm start
 ```
 
+---
+
+## 📚 Key Focus Areas
+
+* 🔍 Class Component lifecycle methods: `componentDidMount`, `shouldComponentUpdate`, `componentWillUnmount`, etc.
+* 🔍 Function Component hooks: `useEffect`, `useLayoutEffect`, `useMemo`, `useCallback`, etc.
+* 🔄 How state updates and re-renders differ across component types
+* 🔄 Hook dependency behavior and side-effects
+
+---
+
+## 💬 Contribution & Feedback
+
+This project is primarily for learning purposes. If you find bugs or have suggestions for improvement, feel free to open an issue or PR.
+
+---
