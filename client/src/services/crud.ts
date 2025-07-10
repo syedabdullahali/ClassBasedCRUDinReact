@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 import { CleanUser, UserFetchApi } from "../type/crud"
 
-
-
 function useHookGetData():UserFetchApi {
 const [data,setData] = useState({status:false,data:[]}) 
 const getDataofUser = async ()=>{
