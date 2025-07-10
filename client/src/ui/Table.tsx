@@ -6,13 +6,12 @@ export interface Column<T> {
   render?: (row: T) => ReactNode;
 }
 
-
- interface TabelProps<T>{
-    data:T[],
-    // columns:Column[], //not T[]
-    columns: Column<T>[];   // Strongly typed!
-    mutation?:boolean 
- } 
+interface TabelProps<T> {
+  data: T[];
+  // columns:Column[], //not T[]
+  columns: Column<T>[]; // Strongly typed!
+  mutation?: boolean;
+}
 
 class Table<T> extends Component<TabelProps<T>> {
   render() {
@@ -20,16 +19,18 @@ class Table<T> extends Component<TabelProps<T>> {
     return (
       <table>
         <thead>
-          {columns.map((el) => (
-            <th>{el.headerName}</th>
-          ))}
+          <tr>
+            {columns.map((el, i) => (
+              <th key={i}>{el.headerName}</th>
+            ))}
+          </tr>
         </thead>
         <tbody>
-          {data.map((row) => (
-            <tr>
-              {columns.map((col) => (
-                <td>
-                    {col.render ? col.render(row) : String(row[col.accessor])}
+          {data.map((row, i) => (
+            <tr key={i}>
+              {columns.map((col, i) => (
+                <td key={i}>
+                  {col.render ? col.render(row) : String(row[col.accessor])}
                 </td>
               ))}
               {mutation && (

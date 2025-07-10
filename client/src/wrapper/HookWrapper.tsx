@@ -1,5 +1,5 @@
 import { ComponentType, JSX } from "react"
-import { useHookGetData } from "../api/crud"
+import { useHookGetData } from "../services/crud"
 import { UserFetchApi } from "../type/crud"
 
 interface HookProps {
